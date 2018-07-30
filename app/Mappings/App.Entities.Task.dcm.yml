@@ -8,6 +8,8 @@ App\Entities\Task:
             options:
                 unsigned: false
             id: true
+            generator:
+                strategy: IDENTITY
     fields:
         title:
             type: string
