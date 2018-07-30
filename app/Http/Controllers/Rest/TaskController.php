@@ -8,7 +8,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Entities\Task;
 use Doctrine\ORM\EntityManager;
-use Illuminate\Http\Response;
 
 class TaskController extends Controller
 {
@@ -27,6 +26,13 @@ class TaskController extends Controller
      */
     private $validator;
 
+    /**
+     * TaskController constructor.
+     *
+     * @param EntityManager $entityManager Class EntityManager.
+     * @param Request       $request       Class Request.
+     * @param ApiValidator  $validator     Class ApiValidator.
+     */
     public function __construct(
         EntityManager $entityManager,
         Request $request,
@@ -37,6 +43,11 @@ class TaskController extends Controller
         $this->validator = $validator;
     }
 
+    /**
+     * This method shows all tasks which are in database now.
+     *
+     * @return JsonResponse Returns Task collection in Json format.
+     */
     public function index()
     {
         $tasksArray = [];
@@ -51,13 +62,13 @@ class TaskController extends Controller
     }
 
     /**
-     *
+     * This method shows a single Task by requested id.
      *
      * @param int $id Id of the task
      *
-     * @return JsonResponse
+     * @return JsonResponse Returns single Task in Json format.
      *
-     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\ORMException Base exception class for all ORM exceptions.
      * @throws \Doctrine\ORM\OptimisticLockException
      * @throws \Doctrine\ORM\TransactionRequiredException
      */
@@ -71,8 +82,13 @@ class TaskController extends Controller
     }
 
     /**
-     * @param \App\Entities\Task $task
-     * @throws \Doctrine\ORM\ORMException
+     * This method creates a new task.
+     *
+     * @param Task $task Instance of entity.
+     *
+     * @return void
+     *
+     * @throws \Doctrine\ORM\ORMException Base exception class for all ORM exceptions.
      * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function store(Task $task)
@@ -91,9 +107,15 @@ class TaskController extends Controller
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
-     * @throws \Doctrine\ORM\ORMException
+     * This method updates single Task by requested id.
+     *
+     * @param Request $request Request.
+     * @param integer $id      Id of the task.
+     *
+     * @return void
+     *
+     * @throws Http400ApiException Exception class for Bad Request error.
+     * @throws \Doctrine\ORM\ORMException Base exception class for all ORM exceptions.
      * @throws \Doctrine\ORM\OptimisticLockException
      * @throws \Doctrine\ORM\TransactionRequiredException
      */
@@ -119,8 +141,11 @@ class TaskController extends Controller
     }
 
     /**
-     * @param int $id
-     * @throws \Doctrine\ORM\ORMException
+     * This method delete single Task by requested id.
+     *
+     * @param integer $id Id of the Task.
+     *
+     * @throws \Doctrine\ORM\ORMException Base exception class for all ORM exceptions.
      * @throws \Doctrine\ORM\OptimisticLockException
      * @throws \Doctrine\ORM\TransactionRequiredException
      */
