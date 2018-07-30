@@ -66,7 +66,6 @@
 </div>
 
 <script src="{{asset('js/tasks.from.database.js')}}" defer></script>
-{{--<script src="{{asset('js/new.draw.js')}}" defer></script>--}}
 <script type="text/javascript" src="{{asset('libs/datatables.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('libs/DataTables-1.10.18/js/dataTables.bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{asset('libs/DataTables-1.10.18/js/jquery.dataTables.js')}}"></script>
