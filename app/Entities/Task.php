@@ -148,4 +148,17 @@ class Task
     {
         return $this->status;
     }
+
+    public function toArray()
+    {
+        $array = [];
+
+        $array['id'] = $this->getId();
+        $array['title'] = $this->getTitle();
+        $array['description'] = $this->getDescription();
+        $array['creation_date'] = $this->getCreationDate();
+        $array['status'] = $this->getStatus();
+
+        return $array;
+    }
 }
