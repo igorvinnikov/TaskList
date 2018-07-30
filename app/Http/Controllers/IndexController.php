@@ -2,12 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
+/**
+ * Class IndexController
+ *
+ * @package App\Http\Controllers
+ */
 class IndexController extends Controller
 {
-    public function show()
+    /**
+     * @return View
+     */
+    public function show() : View
     {
-
+        return view('app.taskList');
     }
 }
