@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Rest;
 
 use App\Exceptions\Http400ApiException;
 use App\Helpers\ApiValidator;
@@ -8,7 +8,13 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Entities\Task;
 use Doctrine\ORM\EntityManager;
+use App\Http\Controllers\Controller;
 
+/**
+ * Class TaskController
+ *
+ * @package App\Http\Controllers\Rest
+ */
 class TaskController extends Controller
 {
     /**
