@@ -1,0 +1,126 @@
+.invisible {
+    display: none;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    cursor: default;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    visibility: hidden;
+    z-index: 99999;
+    -webkit-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -o-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+.editForm {
+    background-color: #fff;
+    border: 3px solid #fff;
+    display: inline-block;
+    left: 50%;
+    opacity: 0;
+    padding: 15px;
+    width: 400px;
+    min-height: 323px;
+    position: fixed;
+    text-align: justify;
+    top: 40%;
+    visibility: hidden;
+    z-index: 999999;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: opacity .5s, top .5s;
+    -moz-transition: opacity .5s, top .5s;
+    -ms-transition: opacity .5s, top .5s;
+    -o-transition: opacity .5s, top .5s;
+    transition: opacity .5s, top .5s;
+    border-radius: 11px;
+}
+
+.inputGroup {
+    margin-bottom: 20px;
+}
+
+.editForm label {
+    font-size: 18px;
+}
+
+.editForm label:first-letter {
+    text-transform: uppercase;
+}
+
+.hide_column {
+    display: none;
+}
+
+.selectable tbody tr:hover {
+    cursor: pointer;
+    background-color: #7774e7 !important;
+    color: white;
+}
+
+.errorMessage {
+    margin-top: 10px;
+}
+
+.newTask {
+    margin-bottom: 20px;
+}
+
+.thumbPoster {
+    width: 100px;
+}
+
+.movieTitle p, .details p {
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.ru {
+    color: #000000;
+}
+
+.original {
+    font-size: 12px;
+}
+
+.genre {
+    display: inline-block;
+    color: #ffff;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 0 6px 2px 6px;
+    border-radius: 5px;
+}
+
+.trailer {
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+.releaseDate {
+    padding-top: 20px;
+}
+
+.selectable tbody tr:hover {
+    cursor: pointer;
+    background-color: #7774e7 !important;
+    color: white;
+}
+
+.selectable tbody tr:hover a, .selectable tbody tr:hover p {
+    color: #fff;
+}
+
+.selected {
+}
