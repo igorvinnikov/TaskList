@@ -94,23 +94,6 @@
     font-size: 12px;
 }
 
-.genre {
-    display: inline-block;
-    color: #ffff;
-    margin-right: 5px;
-    margin-bottom: 5px;
-    padding: 0 6px 2px 6px;
-    border-radius: 5px;
-}
-
-.trailer {
-    text-decoration: underline;
-    margin-top: 10px;
-}
-
-.releaseDate {
-    padding-top: 20px;
-}
 
 .selectable tbody tr:hover {
     cursor: pointer;
@@ -122,5 +105,3 @@
     color: #fff;
 }
 
-.selected {
-}

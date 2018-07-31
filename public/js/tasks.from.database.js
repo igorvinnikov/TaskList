@@ -1,7 +1,7 @@
 function renderDate(data) {
     let creation = new Date(data);
     let locale = 'en';
-    let month = creation.toLocaleString(locale, {month:'short'});
+    let month = creation.toLocaleString(locale, {month: 'short'});
     let formatDate = creation.getDate() + " " + month + " " + creation.getFullYear();
 
     let time = new Date(data);
@@ -17,27 +17,27 @@ $(document).ready(function () {
             {className: "hide_column", "targets": [0]}
         ],
         ajax: {
-            url : '/api/v1/task/',
-            dataSrc : ''
+            url: '/api/v1/task/',
+            dataSrc: ''
         },
         columns: [
             {
-                'data' : 'id',
+                'data': 'id',
             },
             {
-                'data' : 'title',
+                'data': 'title',
             },
             {
-                'data' : 'description',
+                'data': 'description',
             },
             {
-                'data' : 'creation_date.date',
+                'data': 'creation_date.date',
                 "render": function (data) {
                     return renderDate(data);
                 }
             },
             {
-                'data' : 'status',
+                'data': 'status',
             }
         ]
     });
@@ -82,7 +82,7 @@ $(document).ready(function () {
                                             value="${value}" class="form-control" wrap="soft">
                                     </div>
                                 </div>`;
-                    if(!$(`#${editCells[i].getAttribute('data-content')}`).length) {
+                    if (!$(`#${editCells[i].getAttribute('data-content')}`).length) {
                         $('.editForm form').prepend(input);
                     }
                 }
@@ -114,7 +114,9 @@ $(document).ready(function () {
             url: '/api/v1/task/' + itemId,
             data: formData,
             success: function () {
-                cells[0].innerText = form[0][0].value;
+                cells[1].innerText = form[0][0].value;
+                cells[2].innerText = form[0][1].value;
+                cells[4].innerText = form[0][2].value;
                 close(e);
             },
             error: function (error) {
