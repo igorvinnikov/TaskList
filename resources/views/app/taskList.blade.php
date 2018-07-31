@@ -58,6 +58,35 @@
     </div>
 </main>
 <div class="overlay"></div>
+<div id="taskForm" class="editForm">
+    <form id="newTask">
+        <div class="inputGroup">
+            <div>
+                <label for="title">Title</label>
+            </div>
+            <div id="titleInput">
+                <input id="titleId" name="title" type="text" class="form-control dynamic">
+            </div>
+            <div>
+                <label for="description">Description</label>
+            </div>
+            <div id="descriptionInput">
+                <input id="descript" name="description" type="text" class="form-control dynamic">
+            </div>
+            <div>
+                <label for="status">Status</label>
+            </div>
+            <div>
+                <select name="status" id="statusTask" class="form-control">
+                    <option value="open">open</option>
+                    <option value="closed">closed</option>
+                </select>
+            </div>
+        </div>
+        <input type="submit" id="announce" value="Create" class="btn btn-success btn-block">
+        <input type="button" value="Close" class="btn btn-danger btn-block closeForm">
+    </form>
+</div>
 <div id="editForm" class="editForm">
     <form id="newTaskForm">
         <input type="submit" value="Edit" class="btn btn-success btn-block">
@@ -66,6 +95,7 @@
 </div>
 
 <script src="{{asset('js/tasks.from.database.js')}}" defer></script>
+<script src="{{asset('js/new.task.js')}}" defer></script>
 <script type="text/javascript" src="{{asset('libs/datatables.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('libs/DataTables-1.10.18/js/dataTables.bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{asset('libs/DataTables-1.10.18/js/jquery.dataTables.js')}}"></script>
