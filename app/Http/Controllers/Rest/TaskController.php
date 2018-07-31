@@ -103,8 +103,8 @@ class TaskController extends Controller
 
         $this->validator->validate($data);
 
-        $task->setTitle($data['title']);
-        $task->setDescription($data['description']);
+        $task->setTitle($data['titleTask']);
+        $task->setDescription($data['descriptionTask']);
         $task->setCreationDate(new \DateTime('now'));
         $task->setStatus($data['status']);
 
