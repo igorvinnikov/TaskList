@@ -9,7 +9,8 @@ git clone https://github.com/igorvinnikov/TaskList.git
 ## About
 
 ```
-This is a simple task list, where you can add a new task,
+This is a simple task list made on Laravel, 
+where you can add a new task,
 edit and delete existing one.
 
 This app is built on Rest API.
