@@ -15,6 +15,7 @@ class TaskTest extends TestCase
 
     /**
      * Test for get and set id
+     *
      * @return void
      */
     public function testSetGetId()
@@ -73,14 +74,14 @@ class TaskTest extends TestCase
 
         $testDate = $task->setCreationDate($date);
         $this->assertAttributeEquals($date, 'creationDate', $task);
-        $this-> assertInstanceOf(Task::class, $testDate);
+        $this->assertInstanceOf(Task::class, $testDate);
         $creationDate = $task->getCreationDate();
         $this->assertEquals($date, $creationDate);
     }
 
     /**
      * Test for get and set status
-     * 
+     *
      * @return void
      */
     public function testSetGetStatus()
