@@ -1,3 +1,5 @@
+"use strict"
+
 let add = document.querySelector('.newTask');
 
 add.onclick = function () {
