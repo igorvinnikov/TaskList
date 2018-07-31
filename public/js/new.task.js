@@ -14,10 +14,10 @@ add.onclick = function () {
 $('#newTask').submit(function (e) {
     e.preventDefault();
 
-    let title = document.querySelector('#titleId').value;
-    let description = document.querySelector('#descript').value;
+    // let title = document.querySelector('#titleId').value;
+    // let description = document.querySelector('#descript').value;
     let formData = $('#newTask').serialize();
-
+console.log(formData);
     $.ajax({
         type: 'POST',
         url: '/api/v1/task/',
@@ -40,9 +40,6 @@ $('.closeForm').click(function (e) {
 
 let close = function (e) {
     e.preventDefault();
-    let dynamic = $('.dynamic');
-    for (let i = 0; i < dynamic.length; i++) {
-        dynamic[i].remove();
-    }
-    $('#taskForm, #editForm, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
+
+    $('#taskForm, #editTaskForm, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
 };

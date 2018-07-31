@@ -20,7 +20,7 @@
     transition: opacity .5s;
 }
 
-.editForm {
+.editForm, .taskForm {
     background-color: #fff;
     border: 3px solid #fff;
     display: inline-block;
@@ -104,4 +104,3 @@
 .selectable tbody tr:hover a, .selectable tbody tr:hover p {
     color: #fff;
 }
-

@@ -38,7 +38,14 @@ $(document).ready(function () {
             },
             {
                 'data': 'status',
-            }
+            },
+            {
+                'data': 'id',
+                'orderable': false,
+                "render": function (data) {
+                    return '<button value="' + data + '" class="btn btn-danger btn-block delete">Delete</button>';
+                }
+            },
         ]
     });
 
@@ -49,9 +56,19 @@ $(document).ready(function () {
     $('#taskTable').click(function (event) {
         let target = event.target;
 
+        if (target.tagName == 'BUTTON') {
+                $.ajax({
+                    type: 'DELETE',
+                    url: '/api/v1/task/' + target.value,
+                    success: function () {
+                        target.parentNode.parentNode.remove();
+                    }
+                });
+        }
+
         if (target.tagName !== 'TD') return;
 
-        if ($('#editForm, .overlay').css('opacity') === 1) return;
+        if ($('#editTaskForm, .overlay').css('opacity') === 1) return;
 
         itemId = target.parentNode.firstChild;
         itemId = itemId.innerText;
@@ -61,13 +78,32 @@ $(document).ready(function () {
         $.ajax({
             url: '/api/v1/task/' + itemId,
         }).done(function (data) {
-            $('#editForm, .overlay').css({'opacity': 1, 'visibility': 'visible'});
+            $('#editTaskForm, .overlay').css({'opacity': 1, 'visibility': 'visible'});
 
             for (let i = editCells.length - 1; 0 <= i; i--) {
                 if (editCells[i].getAttribute('data-action') === 'editable') {
                     let fieldName = editCells[i].getAttribute('data-content');
                     let value = data[fieldName];
-                    let input = `
+                    let input = null;
+                    if (fieldName === 'status'){
+                        input = `<div class="inputGroup dynamic">
+                                    <div>
+                                        <label for="${editCells[i].getAttribute('data-content')}">
+                                            ${editCells[i].getAttribute('data-label')}
+                                        </label>
+                                    </div>
+                                    <div>
+                                       <select 
+                                            name="${editCells[i].getAttribute('data-content')}" 
+                                            id="${editCells[i].getAttribute('data-content')}" 
+                                            class="form-control" wrap="soft"
+                                       >
+                                            <option value="open">open</option>
+                                            <option value="closed">closed</option>
+                                       </select>
+                                </div>`;
+                    }else{
+                        input = `
                                 <div class="inputGroup dynamic">
                                     <div>
                                         <label for="${editCells[i].getAttribute('data-content')}">
@@ -82,6 +118,8 @@ $(document).ready(function () {
                                             value="${value}" class="form-control" wrap="soft">
                                     </div>
                                 </div>`;
+                    };
+
                     if (!$(`#${editCells[i].getAttribute('data-content')}`).length) {
                         $('.editForm form').prepend(input);
                     }
@@ -96,7 +134,7 @@ $(document).ready(function () {
         for (let i = 0; i < dynamic.length; i++) {
             dynamic[i].remove();
         }
-        $('#editForm, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
+        $('#editTaskForm, .overlay').css({'opacity': 0, 'visibility': 'hidden'});
     };
 
     $('#close').click(function (e) {
@@ -136,5 +174,4 @@ $(document).ready(function () {
         }
 
     });
-
 });
