@@ -34,7 +34,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    <table id="taskTable" class="table table-striped table-bordered" style="width:100%">
+                    <table id="taskTable" class="table table-striped table-bordered selectable" style="width:100%">
                         <thead>
                         <tr>
                             <th data-action="non_editable" data-content="id">ID</th>
@@ -47,6 +47,7 @@
                                 Creation
                             </th>
                             <th data-action="editable" data-label="Status" data-content="status">Status</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -65,13 +66,13 @@
                 <label for="title">Title</label>
             </div>
             <div id="titleInput">
-                <input id="titleId" name="title" type="text" class="form-control dynamic">
+                <input id="titleId" name="titleTask" type="text" class="form-control">
             </div>
             <div>
                 <label for="description">Description</label>
             </div>
             <div id="descriptionInput">
-                <input id="descript" name="description" type="text" class="form-control dynamic">
+                <input id="descript" name="descriptionTask" type="text" class="form-control">
             </div>
             <div>
                 <label for="status">Status</label>
@@ -87,7 +88,7 @@
         <input type="button" value="Close" class="btn btn-danger btn-block closeForm">
     </form>
 </div>
-<div id="editForm" class="editForm">
+<div id="editTaskForm" class="editForm">
     <form id="newTaskForm">
         <input type="submit" value="Edit" class="btn btn-success btn-block">
         <input type="button" id="close" value="Close" class="btn btn-danger btn-block closeForm">
