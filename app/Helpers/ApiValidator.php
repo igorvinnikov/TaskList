@@ -40,7 +40,7 @@ class ApiValidator
         $rules = [
             'title' => 'required|between:10, 45',
             'description' => 'max:65535',
-            'status' => 'required|in:open, closed',
+            'status' => 'required|in:open,closed',
         ];
 
         foreach ($rules as $ruleKey => $ruleValue) {
