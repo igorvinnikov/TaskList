@@ -5,6 +5,8 @@
 
 ```
 git clone https://github.com/igorvinnikov/TaskList.git
+
+composer install
 ```
 ## About
 
